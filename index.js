@@ -81,11 +81,22 @@ function Car(model, milesPerGallon) {
 }
 
 Car.prototype.fill = function(gallons){
-  this.tank += gallons;
-}
+ this.tank += gallons;
+   }
+
+
+
+//STRETCH: Give cars ability to `.drive(distance)`. The distance driven:
+//        + Should cause the `odometer` to go up.
+ //       + Should cause the the `tank` to go down taking `milesPerGallon` into account.
+////    - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
+ //       + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
+//*/
 //Come back to if there is time. 
 Car.prototype.drive = function(distance){
-  this.odometer += distance;
+  if ((this.odometer += distance) > 0){
+    return this.tank = this.tank - (this.milesPerGallon/distance);
+  }
 }
 
 
@@ -107,7 +118,7 @@ Baby.prototype.play = function (){
   return `Playing with ${this.favoriteToy}`;
 }
 
-// Baby.play();
+
 
 
 
@@ -123,10 +134,10 @@ Baby.prototype.play = function (){
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Global Binding - a this statement in the global scope would mean that it gives you a window.
+  2. Implicit Binding - when a function is called, the this statement would be referencing the object that is to the left of the . .
+  3. New binding - this refers to the specific instance of the object that is created.
+  4. Explicit Binding - this is defined when call or apply are used. 
 */
 
 
